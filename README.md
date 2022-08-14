@@ -7,8 +7,14 @@ Hilt is aimed to increase the testability, readability and reusability of the co
 
 1) build.gradle/app
 ```
-dependencies {
-     classpath 'com.google.dagger:hilt-android-gradle-plugin:2.40.5'
+buildscript {
+    ext {
+        hilt_version = '2.40.5'
+    }
+
+    dependencies {
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.40.5'
+    }
 }
 ```
 2) build.gradle/project
@@ -47,4 +53,22 @@ FragmentComponent	|@FragmentScoped	|Fragment#onAttach()	|Fragment#onDestroy()|
 ViewComponent|	@ViewScoped	|View#super()|	View destroyed|
 ViewWithFragmentComponent|	@ViewScoped|	View#super()|	View destroyed|
 ServiceComponent	|@ServiceScoped|	Service#onCreate()|	Service#onDestroy()|
+
+
+@Module : Hilt Module class annotated with this. It instructs Hilt on how to provide samples of certain types. 
+
+@InstallIn : It informs Hilt which Android class each module will be used or installed in. 
+
+---Hilt Component image---
+
+https://dagger.dev/hilt/components.html 
+
+> Do not forget to annotate your Hilt module class with @IntallIn. 
+
+
+## References
+https://dagger.dev/hilt
+
+https://developer.android.com/training/dependency-injection/hilt-android
+
 
